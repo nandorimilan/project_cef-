@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kávézó a Város Szívében</title>
+    
+ 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <style>
+    
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap');
+        
+        :root {
+            --primary-color: #8B4513;
+            --secondary-color: #D2691E;
+            --accent-color: #FFE4C4;
+            --dark-color: #2C1810;
+            --light-color: #F5F5DC;
+        }
+        
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--dark-color);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+     
+        .navbar {
+            background-color: rgba(44, 24, 16, 0.95) !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            
+        }
+        
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-color) !important;
+        }
+        
+        .nav-link {
+            color: var(--light-color) !important;
+            font-weight: 400;
+            margin: 0 10px;
+        
+        }
+        
+        .nav-link:hover {
+            color: var(--secondary-color) !important;
+        }
+        
+
+        .hero-section {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://images.unsplash.com/photo-1511920170033-f8396924c348?w=1600') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-section h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+            margin-bottom: 1rem;
+        }
+        
+        .hero-section p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+        }
+        
+        .hero-btn {
+            background-color: var(--secondary-color);
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(210, 105, 30, 0.4);
+     
+        }
+        
+        .hero-btn:hover {
+            background-color: var(--primary-color);
+       
+            box-shadow: 0 6px 20px rgba(139, 69, 19, 0.5);
+        }
+        
+    
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+  
+        #rolunk {
+            background-color: var(--light-color);
+        }
+        
+        .about-image {
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            width: 100%;
+            height: auto;
+        }
+        
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+
+        .product-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+           
+            height: 100%;
+        }
+        
+        .product-card:hover {
+       
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+        
+        .product-card img {
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .product-card .card-title {
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+        
+        .product-price {
+            color: var(--secondary-color);
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+        
+  
+        #galeria {
+            background-color: var(--light-color);
+        }
+        
+        .gallery-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+          
+            cursor: pointer;
+        }
+        
+        .gallery-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        
+     
+        .contact-info {
+            background-color: var(--accent-color);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .contact-info-item {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .contact-info-item i {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-right: 15px;
+        }
+        
+        .contact-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .form-control:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 0.2rem rgba(210, 105, 30, 0.25);
+        }
+        
+        .submit-btn {
+            background-color: var(--primary-color);
+            border: none;
+            padding: 12px 40px;
+            font-weight: 600;
+      
+            
+        }
+        
+        .submit-btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+        
+ 
+        footer {
+            background-color: var(--dark-color);
+            color: var(--light-color);
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .social-icons a {
+            color: var(--light-color);
+            font-size: 1.8rem;
+            margin: 0 15px;
+        
+            
+        }
+        
+        .social-icons a:hover {
+            color: var(--secondary-color);
+        }
+        
+      
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-section p {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+    <header>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="bi bi-cup-hot-fill"></i> Kávézó a Város Szívében</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#rolunk">Rólunk</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#kinálat">Kínálatunk</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#galeria">Galéria</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#kapcsolat">Kapcsolat</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    </header>
+
+  
+    <section class="hero-section">
+        <div class="container">
+            <h1>Ahol a kávé és a nyugalom találkozik egyszerre</h1>
+            <p>Fedezd fel a tökéletes kávéinkat a város szívében</p>
+            <a href="#kinálat" class="btn btn-primary hero-btn">Fedezd fel ízeinket!</a>
+        </div>
+    </section>
+
+   
+    <section id="rolunk">
+        <div class="container">
+            <h2 class="section-title">Rólunk</h2>
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=800" alt="Kávézó belseje" class="about-image">
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-text">
+                        <p>Üdvözlünk a Város Szívében Kávézó oldalon! 2015 óta büszkén üzemeltetjük Budapest legmelegebb kávézóját, ahol minden csésze kávé egy kis nyugalom pillanata.</p>
+                        
+                        <p>Filozófiánk egyszerű: csak a legjobb minőségű kávébabot használjuk, amelyet közvetlenül a termelőktől szerzünk be, és minden italunkat szenvedéllyel és gondossággal készítjük.</p>
+
+                        <p>Baristáink képzett szakemberek, akik évek óta tökéletesítik mesterségüket. Nálunk nemcsak egy kávét kapsz, hanem egy élményt is, egy pillanatot, amikor megállhatsz és élvezheted a jelent.</p>
+                        
+                        <p>Gyere el, érezd jól magad, és találd meg kedvenc kávéidat!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="kinálat">
+        <div class="container">
+            <h2 class="section-title">Kínálatunk</h2>
+            <div class="row g-4">
+           
+                <div class="col-lg-4 col-md-6">
+                    <div class="card product-card">
+                        <img src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=600" class="card-img-top" alt="Espresso">
+                        <div class="card-body">
+                            <h5 class="card-title">Espresso</h5>
+                            <p class="card-text">Klasszikus olasz espresso, tömény és aromás, a tökéletes reggel indító.</p>
+                            <p class="product-price">590 Ft</p>
+                        </div>
+                    </div>
+                </div>
+                
+              
+                <div class="col-lg-4 col-md-6">
+                    <div class="card product-card">
+                        <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=600" class="card-img-top" alt="Cappuccino">
+                        <div class="card-body">
+                            <h5 class="card-title">Cappuccino</h5>
+                            <p class="card-text">Krémes tejhabbal készült olasz klasszikus.</p>
+                            <p class="product-price">890 Ft</p>
+                        </div>
+                    </div>
+                </div>
+                
+            
+                <div class="col-lg-4 col-md-6">
+                    <div class="card product-card">
+                        <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600" class="card-img-top" alt="Latte Macchiato">
+                        <div class="card-body">
+                            <h5 class="card-title">Latte Macchiato</h5>
+                            <p class="card-text">Lágy, tejes kávéspecialitás, tökéletes választás az enyhébb ízek kedvelőinek javasolt.</p>
+                            <p class="product-price">950 Ft</p>
+                        </div>
+                    </div>
+                </div>
+                
+          
+                <div class="col-lg-4 col-md-6">
+                    <div class="card product-card">
+                        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600" class="card-img-top" alt="Croissant">
+                        <div class="card-body">
+                            <h5 class="card-title">Vajas Croissant</h5>
+                            <p class="card-text">Frissen sült, omlós francia croissant.</p>
+                            <p class="product-price">650 Ft</p>
+                        </div>
+                    </div>
+                </div>
+                
+            
+                <div class="col-lg-4 col-md-6">
+                    <div class="card product-card">
+                        <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=600" class="card-img-top" alt="Sajttorta">
+                        <div class="card-body">
+                            <h5 class="card-title">New York Sajttorta</h5>
+                            <p class="card-text">Krémes, selymes sajttorta vaníliával, erdei gyümölcs öntettel.</p>
+                            <p class="product-price">1290 Ft</p>
+                        </div>
+                    </div>
+                </div>
+                
+            
+                <div class="col-lg-4 col-md-6">
+                    <div class="card product-card">
+                        <img src="https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?w=600" class="card-img-top" alt="Brownie">
+                        <div class="card-body">
+                            <h5 class="card-title">Csokis Brownie</h5>
+                            <p class="card-text">Intenzív csokoládés brownie dióval, tökéletes párosítás egy forró kávéhoz.</p>
+                            <p class="product-price">990 Ft</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="galeria">
+        <div class="container">
+            <h2 class="section-title">Galéria</h2>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600" class="gallery-img" alt="Kávé készítés" data-bs-toggle="modal" data-bs-target="#imageModal1">
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=600" class="gallery-img" alt="Kávézó belső" data-bs-toggle="modal" data-bs-target="#imageModal2">
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=600" class="gallery-img" alt="Latte art" data-bs-toggle="modal" data-bs-target="#imageModal3">
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=600" class="gallery-img" alt="Sütemények" data-bs-toggle="modal" data-bs-target="#imageModal4">
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <img src="https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=600" class="gallery-img" alt="Barista munkában" data-bs-toggle="modal" data-bs-target="#imageModal5">
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600" class="gallery-img" alt="Elégedett vendégek" data-bs-toggle="modal" data-bs-target="#imageModal6">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <div class="modal fade" id="imageModal1" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-body p-0">
+                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1200" class="img-fluid" alt="Kávé készítés">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <section id="kapcsolat">
+        <div class="container">
+            <h2 class="section-title">Kapcsolat</h2>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="contact-info">
+                        <h4 class="mb-4">Elérhetőségeink</h4>
+                        <div class="contact-info-item">
+                            <i class="bi bi-geo-alt-fill"></i>
+                            <strong>Cím:</strong> 1051 Budapest, Alkotmány utca 15.
+                        </div>
+                        <div class="contact-info-item">
+                            <i class="bi bi-telephone-fill"></i>
+                            <strong>Telefon:</strong> +36 1 234 5678
+                        </div>
+                        <div class="contact-info-item">
+                            <i class="bi bi-envelope-fill"></i>
+                            <strong>Email:</strong> info@kavezovarsosziveben.hu
+                        </div>
+                        <div class="contact-info-item">
+                            <i class="bi bi-clock-fill"></i>
+                            <strong>Nyitvatartás:</strong>
+                            <ul class="mt-2" style="list-style: none; padding-left: 0;">
+                                <li>Hétfő - Péntek: 7:00 - 20:00</li>
+                                <li>Szombat: 8:00 - 21:00</li>
+                                <li>Vasárnap: 9:00 - 19:00</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="contact-form">
+                        <h4 class="mb-4">Üzenjen nekünk!</h4>
+                        <form>
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Név</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+                                    <input type="text" class="form-control" id="name" placeholder="Az Ön neve">
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email cím</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
+                                    <input type="email" class="form-control" id="email" placeholder="pelda@email.com">
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Üzenet</label>
+                                <textarea class="form-control" id="message" rows="5" placeholder="Írja ide üzenetét..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary submit-btn w-100">Küldés</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="social-icons mb-3">
+                <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            </div>
+            <p class="mb-0">&copy; 2025 Kávézó a Város Szívében. Minden jog fenntartva.</p>
+        </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+</html>
